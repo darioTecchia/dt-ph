@@ -15,10 +15,11 @@ export default {
   ** See https://nuxtjs.org/api/configuration-head
   */
   server: {
-    port: 3001, // default: 3000
-    host: '0.0.0.0', // default: localhost,
+    host: process.env.HOST || 'localhost', // default: localhost
+    port: process.env.PORT || '3000', // default: 3000
     timing: false
   },
+  
   head: {
     title: process.env.npm_package_name || '',
     meta: [
