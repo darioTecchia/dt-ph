@@ -49,6 +49,10 @@ html {
   margin: 0;
 }
 
+*:focus {
+  outline: none;
+}
+
 a,
 a:visited {
   text-decoration: none;
