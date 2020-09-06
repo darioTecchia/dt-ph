@@ -15,7 +15,7 @@ export default {
   ** See https://nuxtjs.org/api/configuration-head
   */
   server: {
-    host: process.env.HOST || 'localhost', // default: localhost
+    host: process.env.HOST || '0.0.0.0', // default: localhost
     port: process.env.PORT || '3000', // default: 3000
     timing: false
   },
@@ -41,6 +41,7 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
+    { src: './plugins/vue-slick-carousel.js' }
   ],
   /*
   ** Auto import components

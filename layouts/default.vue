@@ -1,27 +1,45 @@
 <template>
   <div>
+    <Splash />
+    <Header />
     <Nuxt />
   </div>
 </template>
 
 <style>
+@font-face {
+  font-family: Neue;
+  font-style: normal;
+  font-weight: 400;
+  src: url('../assets/fonts/neue-montreal-regular.woff2');
+}
+@font-face {
+  font-family: Saol;
+  font-style: normal;
+  font-weight: 400;
+  src: url('../assets/fonts/saol-display-regular-italic.woff2');
+}
+
+:root {
+  --pad: 32px;
+  --double-pad: calc(var(--pad) * 2);
+
+  --font-family-sans-serif: 'Neue', -apple-system, 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  --font-family-serif: 'Saol', -apple-system, 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+
+  --normal-font: 16px/30px var(--font-family-sans-serif);
+}
+
 html {
-  font-family:
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
+  font: var(--normal-font);
+  letter-spacing: 3px;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: antialiased;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+
+  background-color: #fff;
 }
 
 *,
@@ -31,32 +49,19 @@ html {
   margin: 0;
 }
 
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
+a,
+a:visited {
   text-decoration: none;
-  padding: 10px 30px;
+  color: unset;
 }
 
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
+.slide-enter-active {
+  transition: all .8s ease;
 }
-
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
+.slide-leave-active {
+  transition: all .8s ease;
 }
-
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
+.slide-enter, .slide-leave-to {
+  transform: translateX(100%);
 }
 </style>
