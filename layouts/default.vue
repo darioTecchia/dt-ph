@@ -53,6 +53,15 @@ html {
   outline: none;
 }
 
+.responsive-bg {
+  -webkit-background-size: cover !important;
+  -moz-background-size: cover !important;
+  -o-background-size: cover !important;
+  background-size: cover !important;
+  background-repeat: no-repeat;
+  background-position: center top;
+}
+
 a,
 a:visited {
   text-decoration: none;

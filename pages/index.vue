@@ -3,9 +3,14 @@
     <div class="content">
       <VueSlickCarousel v-bind="slickSettings" :arrows="true" :dots="true">
         <div v-for="n in 10" :key="n" class="portfolio-slide">
-          <div class="portfolio-image" :style="{ background: 'url(https://w.wallhaven.cc/full/2e/wallhaven-2evglg.jpg' }"></div>
-          <nuxt-link :to="'/portfolio/' + n">{{n}}. TITOLO_PORFOLIO</nuxt-link>
+          <div class="portfolio-image responsive-bg" :style="{ background: 'url(https://w.wallhaven.cc/full/2e/wallhaven-2evglg.jpg' }"></div>
+          <nuxt-link class="portfolio-title" :to="'/portfolio/' + n">{{n}}. TITOLO_PORFOLIO</nuxt-link>
         </div>
+        <template #customPaging="page">
+          <div class="custom-dot">
+            {{ page + 1 }}
+          </div>
+        </template>
       </VueSlickCarousel>
     </div>
   </div>
@@ -13,6 +18,9 @@
 
 <script>
 export default {
+  head: {
+    title: 'CORRADO MASCOLO'
+  },
   data () {
     return {
       slickSettings: {
@@ -24,7 +32,12 @@ export default {
         // lazyLoad: 'ondemand',
         slidesToShow: 3,
         speed: 500
-      }
+      },
+      portfolios: [
+        {
+          title: 'custom'
+        }
+      ]
     }
   }
 }
@@ -59,12 +72,16 @@ export default {
   }
 
   .portfolio-image {
-    height: 100%;
-    -webkit-background-size: cover !important;
-    -moz-background-size: cover !important;
-    -o-background-size: cover !important;
-    background-size: cover !important;
-    background-repeat: no-repeat;
-    background-position: center top;
+    height: 90%;
+  }
+
+  .portfolio-title {
+    height: 10%;
+  }
+
+  .slick-active .custom-dot {
+    font-family: var(--font-family-serif);
+    font-style: italic;
+    font-weight: bold;
   }
 </style>
