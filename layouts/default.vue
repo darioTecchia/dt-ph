@@ -62,6 +62,10 @@ html {
   background-position: center top;
 }
 
+.pointer {
+  cursor: pointer;
+}
+
 a,
 a:visited {
   text-decoration: none;

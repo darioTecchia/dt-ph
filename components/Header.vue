@@ -11,7 +11,7 @@
       <div class="page-title">
       </div>
 
-      <div class="menu-button">
+      <div class="menu-button pointer">
         <h1 @click="isMenuOpened = !isMenuOpened">MENU</h1>
       </div>
     </header>

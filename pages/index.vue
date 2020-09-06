@@ -1,11 +1,24 @@
 <template>
   <div id="home">
     <div class="content">
-      <VueSlickCarousel v-bind="slickSettings" :arrows="true" :dots="true">
+      <VueSlickCarousel v-bind="slickSettings">
         <div v-for="n in 10" :key="n" class="portfolio-slide">
           <div class="portfolio-image responsive-bg" :style="{ background: 'url(https://w.wallhaven.cc/full/2e/wallhaven-2evglg.jpg' }"></div>
           <nuxt-link class="portfolio-title" :to="'/portfolio/' + n">{{n}}. TITOLO_PORFOLIO</nuxt-link>
         </div>
+
+        <template #prevArrow="">
+          <div class="custom-arrow">
+            INDIETRO
+          </div>
+        </template>
+
+        <template #nextArrow="">
+          <div class="custom-arrow">
+            AVANTI
+          </div>
+        </template>
+
         <template #customPaging="page">
           <div class="custom-dot">
             {{ page + 1 }}
@@ -25,11 +38,10 @@ export default {
     return {
       slickSettings: {
         centerMode: true,
-        centerPadding: '20px',
         focusOnSelect: true,
         infinite: true,
-        fade: false,
-        // lazyLoad: 'ondemand',
+        dots: true,
+        arrows: true,
         slidesToShow: 3,
         speed: 500
       },
@@ -65,7 +77,7 @@ export default {
 
   .portfolio-slide {
     height: 45vh;
-    margin: 0px var(--double-pad);
+    /* margin: 0px var(--double-pad); */
     padding: var(--pad) var(--pad) 0px var(--pad);
     display: flex;
     flex-direction: column;
@@ -83,5 +95,29 @@ export default {
     font-family: var(--font-family-serif);
     font-style: italic;
     font-weight: bold;
+  }
+
+  .slick-prev::before, .slick-next::before {
+    display: none !important;
+  }
+
+  .custom-arrow {
+    color: #000;
+    font-size: unset;
+    top: unset;
+    bottom: -25px;
+    line-height: unset;
+    width: unset;
+    z-index: 1;
+  }
+
+  .slick-next {
+    right: 0px;
+    left: unset;
+  }
+
+  .slick-prev {
+    left: 0px;
+    right: unset;
   }
 </style>
