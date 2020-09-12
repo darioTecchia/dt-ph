@@ -3,8 +3,11 @@
     <header>
       <div class="logo">
         <nuxt-link to="/">
-          <h1>CORRADO</h1>
-          <h1>MASCOLO</h1>
+          <div>
+            CORRADO
+            <br>
+            MASCOLO
+          </div>
         </nuxt-link>
       </div>
 
@@ -12,7 +15,7 @@
       </div>
 
       <div class="menu-button pointer">
-        <h1 @click="isMenuOpened = !isMenuOpened">MENU</h1>
+        <div @click="isMenuOpened = !isMenuOpened">MENU</div>
       </div>
     </header>
     <transition name="slide">

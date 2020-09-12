@@ -1,12 +1,11 @@
 <template>
   <transition name="slide">
     <div v-if="!loaded" class="splash">
-      <h1>
+      <div>
         CORRADO
-      </h1>
-      <h1>
+        <br>
         MASCOLO
-      </h1>
+      </div>
     </div>
   </transition>
 </template>

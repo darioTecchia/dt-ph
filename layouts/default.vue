@@ -27,7 +27,8 @@
   --font-family-sans-serif: 'Neue', -apple-system, 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
   --font-family-serif: 'Saol', -apple-system, 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
 
-  --normal-font: 16px/30px var(--font-family-sans-serif);
+  --normal-font: 13px/20px var(--font-family-sans-serif);
+  --huge-font: 120px/160px var(--font-family-sans-serif);
 }
 
 html {

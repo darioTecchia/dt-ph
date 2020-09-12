@@ -2,9 +2,9 @@
   <div id="home">
     <div class="content">
       <VueSlickCarousel v-bind="slickSettings">
-        <div v-for="n in 10" :key="n" class="portfolio-slide">
-          <div class="portfolio-image responsive-bg" :style="{ background: 'url(https://w.wallhaven.cc/full/2e/wallhaven-2evglg.jpg' }"></div>
-          <nuxt-link class="portfolio-title" :to="'/portfolio/' + n">{{n}}. TITOLO_PORFOLIO</nuxt-link>
+        <div v-for="(image, n) in images" :key="image.id" class="portfolio-slide">
+          <div class="portfolio-image responsive-bg" :style="{ background: 'url(' + image.download_url + ')' }"></div>
+          <nuxt-link class="portfolio-title" :to="'/' + n">{{ n+1 }}_{{ image.author }}</nuxt-link>
         </div>
 
         <template #prevArrow="">
@@ -31,6 +31,10 @@
 
 <script>
 export default {
+  async asyncData ({ $axios }) {
+    const images = await $axios.$get('https://picsum.photos/v2/list')
+    return { images }
+  },
   head: {
     title: 'CORRADO MASCOLO'
   },
@@ -105,8 +109,8 @@ export default {
     color: #000;
     font-size: unset;
     top: unset;
-    bottom: -25px;
-    line-height: unset;
+    bottom: -30px;
+    line-height: 30px;
     width: unset;
     z-index: 1;
   }
