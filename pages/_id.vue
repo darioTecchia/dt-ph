@@ -33,7 +33,7 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 10%;
+  padding-top: 100px;
 }
 .image {
   width: 50%;
