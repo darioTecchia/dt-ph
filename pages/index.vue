@@ -3,8 +3,10 @@
     <div class="content">
       <VueSlickCarousel v-bind="slickSettings">
         <div v-for="(image, n) in images" :key="image.id" class="portfolio-slide">
-          <div class="portfolio-image responsive-bg" :style="{ background: 'url(' + image.download_url + ')' }"></div>
-          <nuxt-link class="portfolio-title" :to="'/' + n">{{ n+1 }}_{{ image.author }}</nuxt-link>
+          <div class="portfolio-image responsive-bg" :style="{ background: 'url(' + image.download_url + ')' }" />
+          <nuxt-link class="portfolio-title txt--uppercase" :to="'/' + n">
+            {{ n+1 }}_{{ image.author }}
+          </nuxt-link>
         </div>
 
         <template #prevArrow="">
@@ -35,9 +37,6 @@ export default {
     const images = await $axios.$get('https://picsum.photos/v2/list')
     return { images }
   },
-  head: {
-    title: 'CORRADO MASCOLO'
-  },
   data () {
     return {
       slickSettings: {
@@ -55,6 +54,9 @@ export default {
         }
       ]
     }
+  },
+  head: {
+    title: 'CORRADO MASCOLO'
   }
 }
 </script>

@@ -11,11 +11,10 @@
         </nuxt-link>
       </div>
 
-      <div class="page-title">
-      </div>
-
       <div class="menu-button pointer">
-        <div @click="isMenuOpened = !isMenuOpened">MENU</div>
+        <div @click="isMenuOpened = !isMenuOpened">
+          MENU
+        </div>
       </div>
     </header>
     <transition name="slide">

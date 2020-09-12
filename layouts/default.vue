@@ -67,6 +67,10 @@ html {
   cursor: pointer;
 }
 
+.txt--uppercase {
+  text-transform: uppercase;
+}
+
 a,
 a:visited {
   text-decoration: none;
