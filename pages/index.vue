@@ -81,5 +81,19 @@ export default {
   .in-viewport img:nth-child(2) {
     transform: rotate(-10deg);
   }
-   img:nth-child(3) {}
+</style>
+
+<style scoped>
+@media all and (max-width: 425px){
+  .portfolio {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 240px;
+    text-align: center;
+  }
+
+  .images-wrapper img {
+    padding: 10px 10px 20px 10px;
+  }
+}
 </style>
