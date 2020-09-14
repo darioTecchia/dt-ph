@@ -19,7 +19,7 @@ export default {
     port: process.env.PORT || '3000', // default: 3000
     timing: false
   },
-  
+
   head: {
     title: process.env.npm_package_name || '',
     meta: [
@@ -43,7 +43,7 @@ export default {
   plugins: [
     { src: './plugins/vue-slick-carousel.js' },
     { src: './plugins/vue-inviewport.js' },
-    { src: '~plugins/filters.js'},
+    { src: '~plugins/filters.js' },
   ],
   /*
   ** Auto import components
@@ -62,7 +62,19 @@ export default {
   */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    ['nuxt-lazy-load', {
+      // These are the default values
+      images: true,
+      native: true,
+      polyfill: true,
+      directiveOnly: false,
+
+      // To remove class set value to false
+      loadingClass: 'isLoading',
+      loadedClass: 'isLoaded',
+      appendClass: 'lazyLoad'
+    }]
   ],
   /*
   ** Axios module configuration

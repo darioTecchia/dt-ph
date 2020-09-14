@@ -7,7 +7,7 @@
         <img :src="image.download_url" alt="" srcset="">
       </div>
       <div class="caption">
-        <nuxt-link :to="'/' + n">{{ n+1 }}_{{ image.author | fillWhiteSpace }}.jpg</nuxt-link>
+        <nuxt-link :to="'/' + n">{{ n+1 }}_{{ image.author | fillWhiteSpace }}</nuxt-link>
       </div>
     </div>
   </div>
@@ -72,7 +72,16 @@ export default {
   }
 
   .caption {
-    margin-top: 100px;
+    margin-top: 70px;
+    text-transform: uppercase;
+  }
+
+  .lazyLoad {
+    opacity: 0;
+  }
+
+  .isLoaded {
+    opacity: 1;
   }
 
   .in-viewport img:nth-child(1) {

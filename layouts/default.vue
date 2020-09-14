@@ -30,7 +30,7 @@
   --normal-font: 13px/20px var(--font-family-sans-serif);
   --huge-font: 120px/160px var(--font-family-sans-serif);
 
-  --f-transition: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  --f-transition: ease;
 }
 
 html {
