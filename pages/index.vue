@@ -84,7 +84,7 @@ export default {
 </style>
 
 <style scoped>
-@media all and (max-width: 425px){
+@media all and (max-width: 500px){
   .portfolio {
     width: 100%;
     height: 200px;
