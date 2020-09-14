@@ -1,5 +1,11 @@
 <template>
   <div id="portfolio_single">
+    <h1 class="title">
+      {{ images[0].author }}
+    </h1>
+    <p class="description">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti in accusamus ipsa, sequi nihil accusantium recusandae corporis iure voluptatem, consequatur amet voluptates odio harum atque autem dicta aut iste delectus!
+    </p>
     <div class="images-wrapper">
       <img v-for="(image) in images" :key="image.id" v-in-viewport class="image" :src="image.download_url">
     </div>
@@ -18,20 +24,37 @@ export default {
   },
   head () {
     return {
-      title: 'DT PH >> ' + this.images.title
+      title: 'DT PH >> ' + this.images[0].author
     }
   }
 }
 </script>
 
 <style scoped>
-.images-wrapper {
+#portfolio_single {
+  padding-top: 100px;
   background-color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 100px;
+}
+
+.title {
+  width: 50%;
+  margin-bottom: 50px;
+}
+
+.description {
+  width: 50%;
+  margin-bottom: 50px;
+}
+
+.images-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .image {
   width: 50%;
@@ -60,6 +83,14 @@ export default {
 @media all and (max-width: 500px){
   .image {
     padding: 10px 10px 20px 10px;
+    width: 80%;
+  }
+
+  .title {
+    width: 80%;
+  }
+
+  .description {
     width: 80%;
   }
 }
