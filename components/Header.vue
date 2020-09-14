@@ -38,6 +38,7 @@ export default {
     position: fixed;
     top: 0px;
     width: 100%;
+    height: 120px;
     z-index: 2;
 
     color: #fff;

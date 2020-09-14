@@ -1,32 +1,14 @@
 <template>
   <div id="home">
-    <div class="content">
-      <VueSlickCarousel v-bind="slickSettings">
-        <div v-for="(image, n) in images" :key="image.id" class="portfolio-slide">
-          <div class="portfolio-image responsive-bg" :style="{ background: 'url(' + image.download_url + ')' }" />
-          <nuxt-link class="portfolio-title txt--uppercase" :to="'/' + n">
-            {{ n+1 }}_{{ image.author }}
-          </nuxt-link>
-        </div>
-
-        <template #prevArrow="">
-          <div class="custom-arrow">
-            INDIETRO
-          </div>
-        </template>
-
-        <template #nextArrow="">
-          <div class="custom-arrow">
-            AVANTI
-          </div>
-        </template>
-
-        <template #customPaging="page">
-          <div class="custom-dot">
-            {{ page + 1 }}
-          </div>
-        </template>
-      </VueSlickCarousel>
+    <div v-for="(image, n) in images" :key="image.id" v-in-viewport class="portfolio">
+      <div class="images-wrapper">
+        <img :src="image.download_url" alt="" srcset="">
+        <img :src="image.download_url" alt="" srcset="">
+        <img :src="image.download_url" alt="" srcset="">
+      </div>
+      <div class="caption">
+        {{ n+1 }}_{{ image.author | fillWhiteSpace }}.jpg
+      </div>
     </div>
   </div>
 </template>
@@ -34,26 +16,11 @@
 <script>
 export default {
   async asyncData ({ $axios }) {
-    const images = await $axios.$get('https://picsum.photos/v2/list')
+    const images = await $axios.$get('https://picsum.photos/v2/list?limit=20')
     return { images }
   },
   data () {
-    return {
-      slickSettings: {
-        centerMode: true,
-        focusOnSelect: true,
-        infinite: true,
-        dots: true,
-        arrows: true,
-        slidesToShow: 3,
-        speed: 500
-      },
-      portfolios: [
-        {
-          title: 'custom'
-        }
-      ]
-    }
+    return {}
   },
   head: {
     title: 'CORRADO MASCOLO'
@@ -64,66 +31,55 @@ export default {
 <style scoped>
   #home {
     background-color: #fff;
-    position: absolute;
-    top: 0px;
-    bottom: 0px;
-    right: 0px;
-    left: 0px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    padding: var(--pad);
+    padding: calc(120px + var(--pad)) var(--pad);
   }
 
-  .content {
+  .portfolio {
+    width: 600px;
+    height: 600px;
+    margin-bottom: 240px;
+    text-align: center;
+  }
+
+  .images-wrapper {
     width: 100%;
-  }
-
-  .portfolio-slide {
-    height: 45vh;
-    /* margin: 0px var(--double-pad); */
-    padding: var(--pad) var(--pad) 0px var(--pad);
+    height: 100%;
+    position: relative;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
-  .portfolio-image {
-    height: 90%;
+  .images-wrapper img {
+    position: absolute;
+    width: auto;
+    height: 100%;
+    top: 0px;
+    border-radius: 8px;
+    box-shadow: 0 13px 27px -5px hsla(240, 30.1%, 28%, 0.25), 0 8px 16px -8px hsla(0, 0%, 0%, 0.3), 0 -6px 16px -6px hsla(0, 0%, 0%, 0.03);
+    padding: 20px 20px 40px 20px;
+    background-color: #fff;
+
+    -webkit-transition: all 1s var(--f-transition);
+    -moz-transition: all 1s var(--f-transition);
+    -o-transition: all 1s var(--f-transition);
+    transition: all 1s var(--f-transition);
   }
 
-  .portfolio-title {
-    height: 10%;
+  .caption {
+    margin-top: 100px;
   }
 
-  .slick-active .custom-dot {
-    font-family: var(--font-family-serif);
-    font-style: italic;
-    font-weight: bold;
+  .in-viewport img:nth-child(1) {
+    transform: rotate(10deg);
   }
-
-  .slick-prev::before, .slick-next::before {
-    display: none !important;
+  .in-viewport img:nth-child(2) {
+    transform: rotate(-10deg);
   }
-
-  .custom-arrow {
-    color: #000;
-    font-size: unset;
-    top: unset;
-    bottom: -30px;
-    line-height: 30px;
-    width: unset;
-    z-index: 1;
-  }
-
-  .slick-next {
-    right: 0px;
-    left: unset;
-  }
-
-  .slick-prev {
-    left: 0px;
-    right: unset;
-  }
+   img:nth-child(3) {}
 </style>

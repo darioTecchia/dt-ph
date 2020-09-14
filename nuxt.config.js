@@ -42,6 +42,7 @@ export default {
   */
   plugins: [
     { src: './plugins/vue-slick-carousel.js' },
+    { src: './plugins/vue-inviewport.js' },
     { src: '~plugins/filters.js'},
   ],
   /*
