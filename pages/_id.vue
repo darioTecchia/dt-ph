@@ -13,13 +13,16 @@
 export default {
   async asyncData ({ $axios }) {
     const images = await $axios.$get('https://picsum.photos/v2/list')
+    images.title = 'Test'
     return { images }
   },
   data () {
     return {}
   },
-  head: {
-    title: 'CORRADO MASCOLO >> Portfolio'
+  head () {
+    return {
+      title: 'CORRADO MASCOLO >> ' + this.images.title
+    }
   }
 }
 </script>
