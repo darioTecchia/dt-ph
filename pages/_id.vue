@@ -20,7 +20,7 @@ export default {
   },
   head () {
     return {
-      title: 'CORRADO MASCOLO >> ' + this.images.title
+      title: 'DT PH >> ' + this.images.title
     }
   }
 }

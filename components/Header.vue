@@ -4,9 +4,9 @@
       <div class="logo">
         <nuxt-link to="/">
           <div>
-            CORRADO
+            DT
             <br>
-            MASCOLO
+            PH
           </div>
         </nuxt-link>
       </div>

@@ -23,7 +23,7 @@ export default {
     return {}
   },
   head: {
-    title: 'CORRADO MASCOLO'
+    title: 'DT PH'
   }
 }
 </script>

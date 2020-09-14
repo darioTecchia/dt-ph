@@ -2,9 +2,9 @@
   <transition name="slide">
     <div v-if="!loaded" class="splash">
       <div>
-        CORRADO
+        DT
         <br>
-        MASCOLO
+        PH
       </div>
     </div>
   </transition>
