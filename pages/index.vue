@@ -7,7 +7,7 @@
         <img :src="image.download_url" alt="" srcset="">
       </div>
       <div class="caption">
-        {{ n+1 }}_{{ image.author | fillWhiteSpace }}.jpg
+        <nuxt-link :to="'/' + n">{{ n+1 }}_{{ image.author | fillWhiteSpace }}.jpg</nuxt-link>
       </div>
     </div>
   </div>
